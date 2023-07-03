@@ -1,0 +1,31 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+
+    <h1 class="govuk-heading-xl">
+      Neil's prototype
+    </h1>
+
+    <h2 class="govuk-heading-l"></h2>
+
+    <div class="govuk-!-margin-bottom-4">
+
+      <a href="breakfast/index">Breakfast (here's one I made earlier)</a>
+
+    </div>
+
+    <a href="book-breakfast">Demo service</a>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

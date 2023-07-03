@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+
+
+
+            <h1 class="govuk-heading-l">Check your breakfast order</h1>
+
+            <h2 class="govuk-heading-m">Order details</h2>
+
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  What type of breakfast do you want?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['breakfasttype']}}
+                </dd>
+                  <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="dietary-requirements?breakfasttype={{data['breakfasttype']}}"">
+                      Change<span class="govuk-visually-hidden"> dietary requirementss</span>
+                  </a>
+                  </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  What would you like in your breakfast
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['breakfastitem']}}
+                </dd>
+                  <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="standard-options">
+                      Change<span class="govuk-visually-hidden"> breakfast options</span>
+                  </a>
+                  </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  What drink do you want?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['drink']}}
+                </dd>
+                  <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="drink-options">
+                      Change<span class="govuk-visually-hidden"> drink options</span>
+                  </a>
+                  </dd>
+              </div>
+
+            </dl>
+
+
+      <h2 class="govuk-heading-m">
+        Now send your breakfast booking
+      </h2>
+
+      <p>
+        By submitting this order you are confirming that this is what you want for breakfast.
+      </p>
+
+      <form action="/confirmation" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Accept and contine",
+          href: "confirmation"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

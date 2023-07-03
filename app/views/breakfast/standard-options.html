@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="drink-options" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="breakfastitem-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What would you like in your breakfast
+              </h1>
+            </legend>
+            <div id="breakfastitem-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="breakfastitem" name="breakfastitem" type="checkbox" value="Bacon" {{ checked("breakfastitem", "Bacon") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="breakfastitem">
+                  Bacon
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="breakfastitem-2" name="breakfastitem" type="checkbox" value="Sausage" {{ checked("breakfastitem", "Sausage") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="breakfastitem-2">
+                  Sausage
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="breakfastitem-3" name="breakfastitem" type="checkbox" value="Beans"  {{ checked("breakfastitem", "Beans") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="breakfastitem-3">
+                  Beans
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="breakfastitem-3" name="breakfastitem" type="checkbox" value="Scrambled eggs"  {{ checked("breakfastitem", "Scrambled eggs") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="breakfastitem-3">
+                  Scrambled eggs
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="breakfastitem-3" name="breakfastitem" type="checkbox" value="Black pudding" {{ checked("breakfastitem", "Black pudding") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="breakfastitem-3">
+                  Black pudding
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="breakfastitem-3" name="breakfastitem" type="checkbox" value="Toast" {{ checked("breakfastitem", "Toast") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="breakfastitem-3">
+                  Toast
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  {{ super() }}
+  <script src="/public/javascripts/jquery.js"></script>
+  <script src="/public/javascripts/scripts.js"></script>
+{% endblock %}
